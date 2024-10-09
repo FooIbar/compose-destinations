@@ -222,6 +222,7 @@ fun KSType.getNavArgsDelegateType(
 
 fun KSDeclaration.getVisibility(): Visibility {
     return when {
+        this is KSTypeAlias -> Visibility.PUBLIC
         isPrivate() -> Visibility.PRIVATE
         isInternal() -> Visibility.INTERNAL
         else -> Visibility.PUBLIC
